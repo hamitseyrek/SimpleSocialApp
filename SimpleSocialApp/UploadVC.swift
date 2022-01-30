@@ -9,14 +9,14 @@ import UIKit
 import Firebase
 
 class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var uploadOutlet: UIButton!
     @IBOutlet weak var uploadImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         //MARK: - Gesture for image view
@@ -37,13 +37,13 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         uploadImage.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     @IBAction func uploadClicked(_ sender: Any) {
         
         let storage = Storage.storage()
         // Create a root reference
         let storageRef = storage.reference()
-
+        
         // Create a reference to "media" folder
         let mediaRef = storageRef.child("media")
         
@@ -64,7 +64,27 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                             self.makeAlert(title: "Error!", message: error?.localizedDescription ?? "Error...")
                         } else {
                             let imageUrl = url?.absoluteString
-                            print(imageUrl!)
+                            
+                            //MARK: - Database
+                            let fireStore = Firestore.firestore()
+                            //create post
+                            let fireStorePost = [
+                                "imageUrl" : imageUrl!,
+                                "postedBy" : Auth.auth().currentUser!.uid,
+                                "comment" : self.commentTextField.text ?? "",
+                                "date" : FieldValue.serverTimestamp(),
+                                "likeCount" : 0
+                            ] as [String : Any]
+                            // Add a new document in collection "cities"
+                            fireStore.collection("posts").addDocument(data: fireStorePost, completion: { error in
+                                if error != nil {
+                                    self.makeAlert(title: "Error!", message: error?.localizedDescription ?? "Error...")
+                                } else {
+                                    self.commentTextField.text = ""
+                                    self.uploadImage.image = UIImage(named: "selectImage")
+                                    self.tabBarController?.selectedIndex = 0 // back to feed tab
+                                }
+                            })
                         }
                     }
                 }
