@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -38,5 +39,43 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
 
     @IBAction func uploadClicked(_ sender: Any) {
+        
+        let storage = Storage.storage()
+        // Create a root reference
+        let storageRef = storage.reference()
+
+        // Create a reference to "media" folder
+        let mediaRef = storageRef.child("media")
+        
+        if let data = uploadImage.image?.jpegData(compressionQuality: 0.5) {
+            //Create a unique uuid
+            let uuid = UUID().uuidString
+            
+            // Create a reference to "image.jpg"
+            let imageRef = mediaRef.child("\(uuid).jpg")
+            
+            // Save media to Storage
+            imageRef.putData(data, metadata: nil) { metaData, error in
+                if error != nil {
+                    self.makeAlert(title: "Error!", message: error?.localizedDescription ?? "Error...")
+                } else {
+                    imageRef.downloadURL { url, error in
+                        if error != nil {
+                            self.makeAlert(title: "Error!", message: error?.localizedDescription ?? "Error...")
+                        } else {
+                            let imageUrl = url?.absoluteString
+                            print(imageUrl!)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func makeAlert(title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let button = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)
+        alert.addAction(button)
+        self.present(alert, animated: true, completion: nil)
     }
 }
