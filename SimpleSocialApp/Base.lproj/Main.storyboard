@@ -11,7 +11,7 @@
         <!--Upload-->
         <scene sceneID="ppy-bp-zI9">
             <objects>
-                <viewController id="EVz-9E-OZI" sceneMemberID="viewController">
+                <viewController id="EVz-9E-OZI" customClass="UploadVC" customModule="SimpleSocialApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fK0-PT-36h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,12 +22,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDb-14-Bje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-425" y="145"/>
+            <point key="canvasLocation" x="-442" y="-158"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="61o-3H-eyi">
+            <objects>
+                <viewController id="jEF-og-w5u" customClass="SettingsVC" customModule="SimpleSocialApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b3g-ng-IpZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrM-s0-Wa5">
+                                <rect key="frame" x="130" y="415" width="155" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="logOutClicked:" destination="jEF-og-w5u" eventType="touchUpInside" id="mcE-AO-IGe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vbb-5z-o3k"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="s.circle.fill" catalog="system" id="W2y-fl-5UY"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toViewControllerS" modalPresentationStyle="fullScreen" id="MeX-UV-atA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TN4-qd-b9Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-442.02898550724643" y="559.82142857142856"/>
         </scene>
         <!--Feed-->
         <scene sceneID="AUO-9d-0yG">
             <objects>
-                <viewController id="RPi-qk-AdP" sceneMemberID="viewController">
+                <viewController id="RPi-qk-AdP" customClass="FeedVC" customModule="SimpleSocialApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="buE-tE-ozj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSD-ET-5yd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-425" y="-462"/>
+            <point key="canvasLocation" x="-442" y="-890"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="a6s-6u-atd">
@@ -53,6 +83,7 @@
                     <connections>
                         <segue destination="RPi-qk-AdP" kind="relationship" relationship="viewControllers" id="1EB-ry-6c4"/>
                         <segue destination="EVz-9E-OZI" kind="relationship" relationship="viewControllers" id="UHB-Mb-VwJ"/>
+                        <segue destination="jEF-og-w5u" kind="relationship" relationship="viewControllers" id="qLx-7N-F1A"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ci0-Le-XVz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -125,6 +156,7 @@
                             <constraint firstItem="06o-Nb-e4O" firstAttribute="leading" secondItem="IyZ-Ls-xzJ" secondAttribute="leading" id="xmb-Q1-p0Y"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="MSc-rz-jcO"/>
                     <connections>
                         <outlet property="emailTextField" destination="06o-Nb-e4O" id="Dl4-aU-3Kj"/>
                         <outlet property="passTextField" destination="IyZ-Ls-xzJ" id="53h-DA-iv3"/>
@@ -138,6 +170,7 @@
     </scenes>
     <resources>
         <image name="f.cursive.circle" catalog="system" width="128" height="121"/>
+        <image name="s.circle.fill" catalog="system" width="128" height="121"/>
         <image name="u.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

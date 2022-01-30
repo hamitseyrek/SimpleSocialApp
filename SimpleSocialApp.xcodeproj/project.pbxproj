@@ -15,6 +15,9 @@
 		5E41098327A5E0EA000F7857 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E41098227A5E0EA000F7857 /* Assets.xcassets */; };
 		5E41098627A5E0EA000F7857 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E41098427A5E0EA000F7857 /* LaunchScreen.storyboard */; };
 		5E41098E27A68A28000F7857 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E41098D27A68A28000F7857 /* GoogleService-Info.plist */; };
+		5E41099027A69C16000F7857 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E41098F27A69C16000F7857 /* FeedVC.swift */; };
+		5E41099227A69C27000F7857 /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E41099127A69C27000F7857 /* UploadVC.swift */; };
+		5E41099427A69C3F000F7857 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E41099327A69C3F000F7857 /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		5E41098527A5E0EA000F7857 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E41098727A5E0EA000F7857 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E41098D27A68A28000F7857 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5E41098F27A69C16000F7857 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		5E41099127A69C27000F7857 /* UploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
+		5E41099327A69C3F000F7857 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		64D80149E7FB73D52AE7B054 /* Pods_SimpleSocialApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleSocialApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3231B973CCB8C214034DC25 /* Pods-SimpleSocialApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleSocialApp.release.xcconfig"; path = "Target Support Files/Pods-SimpleSocialApp/Pods-SimpleSocialApp.release.xcconfig"; sourceTree = "<group>"; };
 		E39A73076489670BA4CE3F72 /* Pods-SimpleSocialApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleSocialApp.debug.xcconfig"; path = "Target Support Files/Pods-SimpleSocialApp/Pods-SimpleSocialApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +74,9 @@
 				5E41097927A5E0E6000F7857 /* AppDelegate.swift */,
 				5E41097B27A5E0E6000F7857 /* SceneDelegate.swift */,
 				5E41097D27A5E0E6000F7857 /* ViewController.swift */,
+				5E41099127A69C27000F7857 /* UploadVC.swift */,
+				5E41099327A69C3F000F7857 /* SettingsVC.swift */,
+				5E41098F27A69C16000F7857 /* FeedVC.swift */,
 				5E41097F27A5E0E6000F7857 /* Main.storyboard */,
 				5E41098D27A68A28000F7857 /* GoogleService-Info.plist */,
 				5E41098227A5E0EA000F7857 /* Assets.xcassets */,
@@ -91,7 +100,6 @@
 				E39A73076489670BA4CE3F72 /* Pods-SimpleSocialApp.debug.xcconfig */,
 				C3231B973CCB8C214034DC25 /* Pods-SimpleSocialApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -211,9 +219,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E41099027A69C16000F7857 /* FeedVC.swift in Sources */,
 				5E41097E27A5E0E6000F7857 /* ViewController.swift in Sources */,
 				5E41097A27A5E0E6000F7857 /* AppDelegate.swift in Sources */,
+				5E41099227A69C27000F7857 /* UploadVC.swift in Sources */,
 				5E41097C27A5E0E6000F7857 /* SceneDelegate.swift in Sources */,
+				5E41099427A69C3F000F7857 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
