@@ -15,14 +15,55 @@
                     <view key="view" contentMode="scaleToFill" id="fK0-PT-36h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selectImage" translatesAutoresizingMaskIntoConstraints="NO" id="KFB-dz-b9b">
+                                <rect key="frame" x="20" y="101" width="374" height="252"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Va-MZ-bsb">
+                                <rect key="frame" x="20" y="392" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="sLw-C4-GAW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0i-hw-k5A">
+                                <rect key="frame" x="135" y="486" width="145" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="G0K-nl-HaI"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadClicked:" destination="EVz-9E-OZI" eventType="touchUpInside" id="lWl-9y-bEJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="jNP-8C-LG5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="U0i-hw-k5A" firstAttribute="leading" secondItem="jNP-8C-LG5" secondAttribute="leading" constant="135" id="5j9-sz-0IT"/>
+                            <constraint firstItem="6Va-MZ-bsb" firstAttribute="top" secondItem="KFB-dz-b9b" secondAttribute="bottom" constant="39" id="D67-wF-NGW"/>
+                            <constraint firstItem="KFB-dz-b9b" firstAttribute="top" secondItem="jNP-8C-LG5" secondAttribute="top" constant="57" id="XdZ-gs-JVB"/>
+                            <constraint firstItem="KFB-dz-b9b" firstAttribute="trailing" secondItem="6Va-MZ-bsb" secondAttribute="trailing" id="ZGu-Q1-NR6"/>
+                            <constraint firstItem="jNP-8C-LG5" firstAttribute="bottom" secondItem="U0i-hw-k5A" secondAttribute="bottom" constant="276" id="cbU-FK-lyn"/>
+                            <constraint firstItem="KFB-dz-b9b" firstAttribute="leading" secondItem="fK0-PT-36h" secondAttribute="leadingMargin" id="eoc-YJ-ObA"/>
+                            <constraint firstItem="U0i-hw-k5A" firstAttribute="top" secondItem="6Va-MZ-bsb" secondAttribute="bottom" constant="60" id="gFQ-nj-lhG"/>
+                            <constraint firstItem="KFB-dz-b9b" firstAttribute="trailing" secondItem="fK0-PT-36h" secondAttribute="trailingMargin" id="mvs-aL-cFx"/>
+                            <constraint firstItem="KFB-dz-b9b" firstAttribute="leading" secondItem="6Va-MZ-bsb" secondAttribute="leading" id="p9k-e9-RXL"/>
+                            <constraint firstItem="6Va-MZ-bsb" firstAttribute="centerX" secondItem="U0i-hw-k5A" secondAttribute="centerX" id="wB7-j1-uUD"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="u.circle" catalog="system" id="r5l-Id-1Ki"/>
+                    <connections>
+                        <outlet property="commentTextField" destination="6Va-MZ-bsb" id="WAy-pA-9Z4"/>
+                        <outlet property="uploadImage" destination="KFB-dz-b9b" id="8Ho-rK-OBS"/>
+                        <outlet property="uploadOutlet" destination="U0i-hw-k5A" id="bXe-xh-mag"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDb-14-Bje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-442" y="-158"/>
+            <point key="canvasLocation" x="-442.02898550724643" y="-158.03571428571428"/>
         </scene>
         <!--Settings-->
         <scene sceneID="61o-3H-eyi">
@@ -171,6 +212,7 @@
     <resources>
         <image name="f.cursive.circle" catalog="system" width="128" height="121"/>
         <image name="s.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="selectImage" width="773" height="705"/>
         <image name="u.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
