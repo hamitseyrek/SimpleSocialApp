@@ -73,7 +73,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="a6s-6u-atd">
             <objects>
-                <tabBarController id="n3P-dS-L9L" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbar" id="n3P-dS-L9L" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kE7-15-krF"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f9f-ts-hLf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -112,9 +112,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BF-an-YhC">
                                 <rect key="frame" x="198" y="532" width="149" height="41"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign out"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sign up"/>
                                 <connections>
-                                    <action selector="signOutClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="60c-zr-Z0h"/>
+                                    <action selector="signUpClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LOL-Kk-6y8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Social App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ef7-IT-e4e">
