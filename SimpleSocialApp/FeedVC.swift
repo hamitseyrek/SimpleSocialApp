@@ -45,6 +45,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         if let documentID = document.documentID as? String {
                             self.postIDArray.append(documentID)
                         }
+                        if let userName = document.get("postedBy") as? String {
+                            self.userEmailArray.append(userName)
+                        }
                         if let imageUrl = document.get("imageUrl") as? String {
                             self.userImageArray.append(imageUrl)
                         }
