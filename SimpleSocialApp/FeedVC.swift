@@ -17,6 +17,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var commentArray = [String]()
     var userImageArray = [String]()
     var likeArray = [Int]()
+    var postIDArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +42,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     self.commentArray.removeAll()
                     self.likeArray.removeAll()
                     for document in querySnapshot!.documents {
-                        if let userName = document.get("postedBy") as? String {
-                            self.userEmailArray.append(userName)
+                        if let documentID = document.documentID as? String {
+                            self.postIDArray.append(documentID)
                         }
                         if let imageUrl = document.get("imageUrl") as? String {
                             self.userImageArray.append(imageUrl)
@@ -67,6 +68,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.userEmailTextField.text = userEmailArray[indexPath.row]
         cell.commentLabel.text = commentArray[indexPath.row]
         cell.likeLabel.text = String(likeArray[indexPath.row])
+        cell.postID.text = String(postIDArray[indexPath.row])
         
         //Image async
         let url = URL(string: userImageArray[indexPath.row])
@@ -87,15 +89,5 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         userEmailArray.count
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
