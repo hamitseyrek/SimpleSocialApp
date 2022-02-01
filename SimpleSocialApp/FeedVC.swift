@@ -7,10 +7,14 @@
 
 import UIKit
 import Firebase
+import OneSignal
+
 
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    let fireStoreDb = Firestore.firestore()
     
     //MARK: - Variables
     var userEmailArray = [String]()
@@ -27,10 +31,41 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         
         getData()
+        
+        //MARK: - (One signal) - get PlayerId and save to firestore
+        if let deviceState = OneSignal.getDeviceState() {
+            if let playerId = deviceState.userId {
+                fireStoreDb.collection("PlayerIDs").whereField("userId", isEqualTo: Auth.auth().currentUser!.uid).getDocuments { snapShot, error in
+                    if error  == nil {
+                        if snapShot?.isEmpty == false && snapShot != nil {
+                            for document in snapShot!.documents {
+                                if let playerIdFromFirebase =  document.get("player_id") as? String {
+                                    if playerId != playerIdFromFirebase {
+                                        self.fireStoreDb.collection("PlayerIDs").addDocument(data: ["userId" : Auth.auth().currentUser!.uid, "player_id" : playerId]) { error in
+                                            if error != nil {
+                                                print(error?.localizedDescription)
+                                            }
+                                        }
+                                    } else {
+                                        self.fireStoreDb.collection("PlayerIDs").document("")
+                                    }
+                                }
+                            }
+                        } else {
+                            self.fireStoreDb.collection("PlayerIDs").addDocument(data: ["userId" : Auth.auth().currentUser!.uid, "player_id" : playerId]) { error in
+                                if error != nil {
+                                    print(error?.localizedDescription)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
     }
     //MARK: - GetData from FireStore
     func getData() {
-        let fireStoreDb = Firestore.firestore()
         fireStoreDb.collection("posts").order(by: "date", descending: true).addSnapshotListener { querySnapshot, error in
             if error != nil {
                 print("Error in here!!!")
